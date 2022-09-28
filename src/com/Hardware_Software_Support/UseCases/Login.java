@@ -18,7 +18,7 @@ public class Login {
 
 		System.out.print("Enter Your Password: ");
 		String password = sc.nextLine();
-		sc.close();
+//		sc.close();
 		LoginDAO dao = new LoginDAOImp();
 
 		try {
@@ -27,6 +27,7 @@ public class Login {
 
 			flag = true;
 			System.out.println("\nWelcome " + UserName);
+			System.out.println("=============================");
 			
 		} catch (CredentialsException e) {
 			System.out.println(e.getMessage());

@@ -1,12 +1,12 @@
 package com.Hardware_Software_Support.Test;
 
-import com.Hardware_Software_Support.HOD;
+import com.Hardware_Software_Support.Hod;
 
 public class TestHOD {
 
 	public static void main(String[] args) {
 		
-		HOD h = new HOD();
+		Hod h = new Hod();
 		h.run();
 		
 	}

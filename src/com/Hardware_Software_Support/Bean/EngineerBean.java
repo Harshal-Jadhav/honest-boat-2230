@@ -1,6 +1,6 @@
 package com.Hardware_Software_Support.Bean;
 
-public class Engineer {
+public class EngineerBean {
 
 	int empId;
 	String name;
@@ -9,7 +9,7 @@ public class Engineer {
 	String password;
 	
 	//Constructor
-	public Engineer() {
+	public EngineerBean() {
 		// TODO Auto-generated constructor stub
 	}
 	

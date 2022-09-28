@@ -34,11 +34,11 @@ public class LoginDAOImp implements LoginDAO {
 				if (rs2.next()) {
 					name = (rs2.getString("FirstName") + " " + rs2.getString("LastName"));
 				} else {
-					throw new CredentialsException("OOPS Wrong Password...!\n");
+					throw new CredentialsException("\nOOPS Wrong Password...! Try Again\n======================================\n");
 				}
 
 			}else {
-				throw new CredentialsException("User Not Found..Please Check username or Register Yourself..!\n");
+				throw new CredentialsException("\nUser Not Found..Please Check username or Register Yourself..!\n========================================================\n");
 			}
 
 		} catch (SQLException e) {
