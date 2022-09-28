@@ -13,18 +13,21 @@ public class Login {
 
 		boolean flag = false;
 
-		System.out.println("Enter Your Username: ");
+		System.out.print("Enter Your Username: ");
 		String username = sc.nextLine();
 
-		System.out.println("Enter Your Password: ");
+		System.out.print("Enter Your Password: ");
 		String password = sc.nextLine();
-
+		sc.close();
 		LoginDAO dao = new LoginDAOImp();
 
 		try {
+			
 			String UserName = dao.login(username, password, table);
+
 			flag = true;
-			System.out.println("Welcome " + UserName);
+			System.out.println("\nWelcome " + UserName);
+			
 		} catch (CredentialsException e) {
 			System.out.println(e.getMessage());
 		}

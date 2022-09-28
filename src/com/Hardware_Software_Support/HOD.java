@@ -15,7 +15,10 @@ public class HOD {
 	public void run() {
 		Login lg = new Login();
 		if(lg.loginIntoAccount("hod")) {
-			
+			System.out.println("move to further process.");
+		}else {
+			HOD h = new HOD();
+			h.run();
 		}
 	}
 	

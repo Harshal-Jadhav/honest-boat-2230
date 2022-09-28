@@ -14,33 +14,31 @@ public class LoginDAOImp implements LoginDAO {
 	public String login(String username, String password, String table) throws CredentialsException {
 
 		String name = null;
-
+		
 		try (Connection con = ConnectionGenerator.provideConnection()) {
+			
+			PreparedStatement ps1 = con.prepareStatement("select * from "+table+" where username = ?");
 
-			PreparedStatement ps1 = con.prepareStatement("selecet * from ? where username = ?");
-
-			ps1.setString(1, table);
-			ps1.setString(2, username);
-
+			ps1.setString(1, username);
+			
 			ResultSet rs1 = ps1.executeQuery();
 
 			if (rs1.next()) {
-				PreparedStatement ps2 = con.prepareStatement("select * from ? where username = ? AND password = ?");
+				PreparedStatement ps2 = con.prepareStatement("select * from "+table+ " where username = ? AND password = ?");
 
-				ps2.setString(1, table);
-				ps2.setString(2, username);
-				ps2.setString(3, password);
+				ps2.setString(1, username);
+				ps2.setString(2, password);
 
 				ResultSet rs2 = ps2.executeQuery();
 
 				if (rs2.next()) {
 					name = (rs2.getString("FirstName") + " " + rs2.getString("LastName"));
 				} else {
-					throw new CredentialsException("OOPS Wrong Password...! ");
+					throw new CredentialsException("OOPS Wrong Password...!\n");
 				}
 
 			}else {
-				throw new CredentialsException("User Not Found..Please Check username or Register Yourself..!");
+				throw new CredentialsException("User Not Found..Please Check username or Register Yourself..!\n");
 			}
 
 		} catch (SQLException e) {
