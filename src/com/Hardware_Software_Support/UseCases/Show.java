@@ -15,6 +15,9 @@ public class Show {
 		
 		try {
 			List<EngineerBean> list =  h.viewAllEngineers();
+			
+			list.stream().forEach(e->System.out.println(e));
+			
 		} catch (RecordsNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());

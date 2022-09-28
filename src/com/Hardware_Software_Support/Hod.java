@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.Hardware_Software_Support.UseCases.Login;
 import com.Hardware_Software_Support.UseCases.Register;
+import com.Hardware_Software_Support.UseCases.Show;
 
 /**
  * This class Handles all the Menu Operations that HOD (Admin) is allowed to do. For
@@ -52,7 +53,8 @@ public class Hod {
 				r.registerNewEngineer();
 				break;
 			case 2:
-				System.out.println("view eng");
+				Show sh = new Show();
+				sh.printAllEngineers();
 				break;
 			case 3:
 				System.out.println("Remove Eng");

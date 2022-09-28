@@ -56,6 +56,13 @@ public class EngineerBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "EngineerBean [EmployeeId=" + empId + ", Name=" + name + ", Department=" + department + ", Username="
+				+ username + ", Password=" + password + "]";
+	}
+	
 	
 	
 	

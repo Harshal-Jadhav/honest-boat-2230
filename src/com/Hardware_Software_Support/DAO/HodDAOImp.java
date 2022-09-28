@@ -57,7 +57,7 @@ public class HodDAOImp implements HodDAO {
 
 				EngineerBean en = new EngineerBean();
 
-				en.setEmpId(rs1.getInt("EmpId"));
+				en.setEmpId(rs1.getInt("EngId"));
 				en.setName(rs1.getString("FirstName") + " " + rs1.getString("LastName"));
 				en.setDepartment(rs1.getString("Department"));
 				en.setUsername(rs1.getString("username"));
@@ -67,7 +67,7 @@ public class HodDAOImp implements HodDAO {
 			}
 
 			if (flag) {
-				throw new RecordsNotFoundException("Engineers Table is Empty");
+				throw new RecordsNotFoundException("No Records Found...!");
 			}
 
 		} catch (SQLException e) {
