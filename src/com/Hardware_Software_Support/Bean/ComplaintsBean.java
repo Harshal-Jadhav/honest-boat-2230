@@ -1,6 +1,6 @@
 package com.Hardware_Software_Support.Bean;
 
-public class Complaints {
+public class ComplaintsBean {
 
 	private String Id;
 	private String description;
@@ -12,7 +12,7 @@ public class Complaints {
 	private String engName;
 	
 	//Constructor
-	public Complaints() {
+	public ComplaintsBean() {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -82,6 +82,14 @@ public class Complaints {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "ComplaintsBean [Id=" + Id + ", description=" + description + ", type=" + type + ", empId=" + empId
+				+ ", empName=" + empName + ", status=" + status + ", engId=" + engId + ", engName=" + engName + "]";
 	}	
+	
+	
 	
 }

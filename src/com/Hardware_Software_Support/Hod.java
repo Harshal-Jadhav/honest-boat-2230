@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.Hardware_Software_Support.UseCases.Login;
 import com.Hardware_Software_Support.UseCases.Register;
+import com.Hardware_Software_Support.UseCases.Remove;
 import com.Hardware_Software_Support.UseCases.Show;
 
 /**
@@ -53,14 +54,16 @@ public class Hod {
 				r.registerNewEngineer();
 				break;
 			case 2:
-				Show sh = new Show();
-				sh.printAllEngineers();
+				Show sh1 = new Show();
+				sh1.printAllEngineers();
 				break;
 			case 3:
-				System.out.println("Remove Eng");
+				Remove rm = new Remove();
+				rm.removeEnginner();
 				break;
 			case 4:
-				System.out.println("view Comp");
+				Show sh2 = new Show();
+				sh2.printAllComplaints();
 				break;
 			case 5:
 				System.out.println("assign eng");
