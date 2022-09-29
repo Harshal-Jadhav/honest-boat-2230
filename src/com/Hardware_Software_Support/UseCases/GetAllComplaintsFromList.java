@@ -4,30 +4,13 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.Hardware_Software_Support.Bean.ComplaintsBean;
-import com.Hardware_Software_Support.Bean.EngineerBean;
 import com.Hardware_Software_Support.DAO.HodDAO;
 import com.Hardware_Software_Support.DAO.HodDAOImp;
 import com.Hardware_Software_Support.Exceptions.RecordsNotFoundException;
 
-public class Show {
+public class GetAllComplaintsFromList {
 
-	public void printAllEngineers() {
-
-		HodDAO h = new HodDAOImp();
-
-		try {
-			List<EngineerBean> list = h.viewAllEngineers();
-
-			list.stream().forEach(e -> System.out.println(e));
-
-		} catch (RecordsNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
-		}
-
-	}
-
-	public void printAllComplaints() {
+	public void run() {
 
 		HodDAO h = new HodDAOImp();
 
@@ -72,7 +55,7 @@ public class Show {
 
 		default:
 			System.out.println("Invalid Choice....!");
-			printAllComplaints();
+			run();
 			break;
 		}
 

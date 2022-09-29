@@ -2,11 +2,12 @@ package com.Hardware_Software_Support;
 
 import java.util.Scanner;
 
-import com.Hardware_Software_Support.UseCases.Assign;
-import com.Hardware_Software_Support.UseCases.Login;
-import com.Hardware_Software_Support.UseCases.Register;
-import com.Hardware_Software_Support.UseCases.Remove;
-import com.Hardware_Software_Support.UseCases.Show;
+import com.Hardware_Software_Support.UseCases.AssignEngineerToComplaint;
+import com.Hardware_Software_Support.UseCases.GetAllComplaintsFromList;
+import com.Hardware_Software_Support.UseCases.GetAllEngineersFromList;
+import com.Hardware_Software_Support.UseCases.LoginUser;
+import com.Hardware_Software_Support.UseCases.RegisterNewEngineer;
+import com.Hardware_Software_Support.UseCases.RemoveEngineerFromList;
 
 /**
  * This class Handles all the Menu Operations that HOD (Admin) is allowed to do. For
@@ -19,7 +20,7 @@ public class Hod {
 
 	public void run() {
 
-		Login lg = new Login();
+		LoginUser lg = new LoginUser();
 		Hod h = new Hod();
 
 		if (lg.loginIntoAccount("hod")) {
@@ -51,24 +52,24 @@ public class Hod {
 
 			switch (choice) {
 			case 1:
-				Register r = new Register();
-				r.registerNewEngineer();
+				RegisterNewEngineer r = new RegisterNewEngineer();
+				r.run();
 				break;
 			case 2:
-				Show sh1 = new Show();
-				sh1.printAllEngineers();
+				GetAllEngineersFromList getEngineers = new GetAllEngineersFromList();
+				getEngineers.run();
 				break;
 			case 3:
-				Remove rm = new Remove();
-				rm.removeEnginner();
+				RemoveEngineerFromList rm = new RemoveEngineerFromList();
+				rm.run();
 				break;
 			case 4:
-				Show sh2 = new Show();
-				sh2.printAllComplaints();
+				GetAllComplaintsFromList getComplaints = new GetAllComplaintsFromList();
+				getComplaints.run();
 				break;
 			case 5:
-				Assign as = new Assign();
-				as.newEngineer();
+				AssignEngineerToComplaint as = new AssignEngineerToComplaint();
+				as.run();
 				break;
 			case 6:
 				System.out.println("logout");

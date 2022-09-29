@@ -6,9 +6,9 @@ import com.Hardware_Software_Support.DAO.HodDAO;
 import com.Hardware_Software_Support.DAO.HodDAOImp;
 import com.Hardware_Software_Support.Exceptions.RecordsNotFoundException;
 
-public class Remove {
+public class RemoveEngineerFromList {
 
-	public void removeEnginner() {
+	public void run() {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("Please Provide an ID of Employee you want to remove: ");

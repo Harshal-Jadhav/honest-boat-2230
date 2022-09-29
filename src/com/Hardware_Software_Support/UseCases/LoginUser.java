@@ -6,7 +6,7 @@ import com.Hardware_Software_Support.DAO.LoginDAO;
 import com.Hardware_Software_Support.DAO.LoginDAOImp;
 import com.Hardware_Software_Support.Exceptions.CredentialsException;
 
-public class Login {
+public class LoginUser {
 
 	public boolean loginIntoAccount(String table) {
 		Scanner sc = new Scanner(System.in);

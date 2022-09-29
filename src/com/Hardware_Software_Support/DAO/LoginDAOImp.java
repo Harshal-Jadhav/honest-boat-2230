@@ -31,9 +31,11 @@ public class LoginDAOImp implements LoginDAO {
 
 				ResultSet rs2 = ps2.executeQuery();
 
-				if (rs2.next()) {
-					name = (rs2.getString("FirstName") + " " + rs2.getString("LastName"));
-				} else {
+				if (rs2.next() && table=="engineer") {
+					name = rs2.getString("EngFirstName")+" "+rs2.getString("EngLastName");
+				} else if (rs2.next()) {
+						name = (rs2.getString("FirstName") + " " + rs2.getString("LastName"));
+				}else {
 					throw new CredentialsException("\nOOPS Wrong Password...! Try Again\n======================================\n");
 				}
 

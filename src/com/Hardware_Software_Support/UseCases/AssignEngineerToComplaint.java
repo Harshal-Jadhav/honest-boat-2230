@@ -6,9 +6,9 @@ import com.Hardware_Software_Support.DAO.HodDAO;
 import com.Hardware_Software_Support.DAO.HodDAOImp;
 import com.Hardware_Software_Support.Exceptions.InvalidInputException;
 
-public class Assign {
+public class AssignEngineerToComplaint {
 
-	public void newEngineer() {
+	public void run() {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("Please Enter the Complaint ID: ");

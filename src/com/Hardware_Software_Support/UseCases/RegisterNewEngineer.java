@@ -7,9 +7,9 @@ import com.Hardware_Software_Support.DAO.HodDAO;
 import com.Hardware_Software_Support.DAO.HodDAOImp;
 import com.Hardware_Software_Support.Exceptions.RecordsNotFoundException;
 
-public class Register {
+public class RegisterNewEngineer {
 
-	public void registerNewEngineer() {
+	public void run() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\n******************************************");
 		System.out.println("===========ADD NEW ENGINEER=============");
@@ -57,7 +57,7 @@ public class Register {
 		
 		switch (choice) {
 		case 1:
-			registerNewEngineer();
+			run();
 			break;
 		case 2:
 			Hod h = new Hod();
