@@ -1,6 +1,6 @@
 package com.Hardware_Software_Support.Bean;
 
-public class Engineer {
+public class EngineerBean {
 
 	int empId;
 	String name;
@@ -9,7 +9,7 @@ public class Engineer {
 	String password;
 	
 	//Constructor
-	public Engineer() {
+	public EngineerBean() {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -56,6 +56,13 @@ public class Engineer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "EngineerBean [EmployeeId=" + empId + ", Name=" + name + ", Department=" + department + ", Username="
+				+ username + ", Password=" + password + "]";
+	}
+	
 	
 	
 	

@@ -6,7 +6,7 @@ import com.Hardware_Software_Support.DAO.LoginDAO;
 import com.Hardware_Software_Support.DAO.LoginDAOImp;
 import com.Hardware_Software_Support.Exceptions.CredentialsException;
 
-public class Login {
+public class LoginUser {
 
 	public boolean loginIntoAccount(String table) {
 		Scanner sc = new Scanner(System.in);
@@ -18,7 +18,7 @@ public class Login {
 
 		System.out.print("Enter Your Password: ");
 		String password = sc.nextLine();
-		sc.close();
+//		sc.close();
 		LoginDAO dao = new LoginDAOImp();
 
 		try {
@@ -27,6 +27,7 @@ public class Login {
 
 			flag = true;
 			System.out.println("\nWelcome " + UserName);
+			System.out.println("=============================");
 			
 		} catch (CredentialsException e) {
 			System.out.println(e.getMessage());
