@@ -2,6 +2,7 @@ package com.Hardware_Software_Support;
 
 import java.util.Scanner;
 
+import com.Hardware_Software_Support.UseCases.Assign;
 import com.Hardware_Software_Support.UseCases.Login;
 import com.Hardware_Software_Support.UseCases.Register;
 import com.Hardware_Software_Support.UseCases.Remove;
@@ -66,7 +67,8 @@ public class Hod {
 				sh2.printAllComplaints();
 				break;
 			case 5:
-				System.out.println("assign eng");
+				Assign as = new Assign();
+				as.newEngineer();
 				break;
 			case 6:
 				System.out.println("logout");

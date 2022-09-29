@@ -7,10 +7,28 @@ public class ComplaintsBean {
 	private String type;
 	private int empId;
 	private String empName;
+	private String empDepartment;
 	private String status;
 	private int engId;
 	private String engName;
+	private String EngDepartment;
 	
+	public String getEmpDepartment() {
+		return empDepartment;
+	}
+
+	public void setEmpDepartment(String empDepartment) {
+		this.empDepartment = empDepartment;
+	}
+
+	public String getEngDepartment() {
+		return EngDepartment;
+	}
+
+	public void setEngDepartment(String engDepartment) {
+		EngDepartment = engDepartment;
+	}
+
 	//Constructor
 	public ComplaintsBean() {
 		// TODO Auto-generated constructor stub
@@ -87,8 +105,11 @@ public class ComplaintsBean {
 	@Override
 	public String toString() {
 		return "ComplaintsBean [Id=" + Id + ", description=" + description + ", type=" + type + ", empId=" + empId
-				+ ", empName=" + empName + ", status=" + status + ", engId=" + engId + ", engName=" + engName + "]";
-	}	
+				+ ", empName=" + empName + ", empDepartment=" + empDepartment + ", status=" + status + ", engId="
+				+ engId + ", engName=" + engName + ", EngDepartment=" + EngDepartment + "]";
+	}
+
+	
 	
 	
 	

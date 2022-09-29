@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.Hardware_Software_Support.Hod;
 import com.Hardware_Software_Support.DAO.HodDAO;
 import com.Hardware_Software_Support.DAO.HodDAOImp;
+import com.Hardware_Software_Support.Exceptions.RecordsNotFoundException;
 
 public class Register {
 
@@ -31,10 +32,14 @@ public class Register {
 		
 		HodDAO h = new HodDAOImp();
 		
-		if(h.register(fname, lname, dept, username, password)) {
-			System.out.println("\nEngineer Registration Sucess\n=========================\n");
-		}else {
-			System.out.println("Engineer Registration Failed.");
+		try {
+			if(h.register(fname, lname, dept, username, password)) {
+				System.out.println("\nEngineer Registration Sucess\n=========================\n");
+			}else {
+				System.out.println("Engineer Registration Failed.");
+			}
+		} catch (RecordsNotFoundException e) {
+			System.out.println(e.getMessage());
 		}
 		
 		addAnother();
