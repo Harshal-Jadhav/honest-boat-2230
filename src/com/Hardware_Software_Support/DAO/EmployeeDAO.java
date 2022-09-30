@@ -9,4 +9,5 @@ public interface EmployeeDAO {
 	
 	public String login(String username, String password) throws CredentialsException;
 	
+	public boolean raiseComplaint(int EmpId, String description, String type) throws RecordsNotFoundException;
 }

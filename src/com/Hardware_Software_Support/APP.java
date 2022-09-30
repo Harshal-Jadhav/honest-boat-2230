@@ -1,5 +1,7 @@
 package com.Hardware_Software_Support;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * This is an Application Built for the Online Hardware and Software Support 
@@ -12,8 +14,10 @@ package com.Hardware_Software_Support;
 public class APP {
 
 	public static void main(String[] args) {
-		Hod h = new Hod();
-		h.run();
+		LocalDateTime d = LocalDateTime.now();
+		String ComId = d.format(DateTimeFormatter.ofPattern("MMddHHmmss"));
+		
+		System.out.println(ComId);
 	}
 	
 }
