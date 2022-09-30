@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.Hardware_Software_Support.UseCases.AssignEngineerToComplaint;
 import com.Hardware_Software_Support.UseCases.GetAllComplaintsFromList;
 import com.Hardware_Software_Support.UseCases.GetAllEngineersFromList;
-import com.Hardware_Software_Support.UseCases.LoginUser;
+import com.Hardware_Software_Support.UseCases.HodLogin;
 import com.Hardware_Software_Support.UseCases.RegisterNewEngineer;
 import com.Hardware_Software_Support.UseCases.RemoveEngineerFromList;
 
@@ -20,10 +20,10 @@ public class Hod {
 
 	public void run() {
 
-		LoginUser lg = new LoginUser();
+		HodLogin lg = new HodLogin();
 		Hod h = new Hod();
 
-		if (lg.loginIntoAccount("hod")) {
+		if (lg.run("hod")) {
 			h.menu();
 		} else {
 
