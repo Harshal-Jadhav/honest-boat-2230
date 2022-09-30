@@ -2,13 +2,13 @@ package com.Hardware_Software_Support.UseCases;
 
 import java.util.Scanner;
 
-import com.Hardware_Software_Support.DAO.HodDAO;
-import com.Hardware_Software_Support.DAO.HodDAOImp;
+import com.Hardware_Software_Support.DAO.EmployeeDAO;
+import com.Hardware_Software_Support.DAO.EmployeeDAOImp;
 import com.Hardware_Software_Support.Exceptions.CredentialsException;
 
-public class HodLogin {
+public class EmployeeLogin {
 
-	public boolean run() {
+	public boolean loginIntoAccount() {
 		Scanner sc = new Scanner(System.in);
 
 		boolean flag = false;
@@ -19,7 +19,7 @@ public class HodLogin {
 		System.out.print("Enter Your Password: ");
 		String password = sc.nextLine();
 //		sc.close();
-		HodDAO dao = new HodDAOImp();
+		EmployeeDAO dao = new EmployeeDAOImp();
 
 		try {
 			

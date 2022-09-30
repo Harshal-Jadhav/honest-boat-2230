@@ -11,4 +11,9 @@ package com.Hardware_Software_Support;
  */
 public class APP {
 
+	public static void main(String[] args) {
+		Hod h = new Hod();
+		h.run();
+	}
+	
 }

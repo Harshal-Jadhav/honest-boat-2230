@@ -24,5 +24,5 @@ public interface HodDAO {
 	
 	public boolean assignEngineer(String compId, int EngId) throws InvalidInputException;
 	
-	public String login(String username, String password, String table) throws CredentialsException;
+	public String login(String username, String password) throws CredentialsException;
 }

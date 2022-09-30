@@ -58,13 +58,13 @@ public class EngineerDAOImp implements EngineerDAO {
 		return list;
 	}
 
-	public String login(String username, String password, String table) throws CredentialsException {
+	public String login(String username, String password) throws CredentialsException {
 
 		String name = null;
 
 		try (Connection con = ConnectionGenerator.provideConnection()) {
 
-			PreparedStatement ps1 = con.prepareStatement("select * from " + table + " where username = ?");
+			PreparedStatement ps1 = con.prepareStatement("select * from engineer where username = ?");
 
 			ps1.setString(1, username);
 
@@ -72,7 +72,7 @@ public class EngineerDAOImp implements EngineerDAO {
 
 			if (rs1.next()) {
 				PreparedStatement ps2 = con
-						.prepareStatement("select * from " + table + " where username = ? AND password = ?");
+						.prepareStatement("select * from engineer where username = ? AND password = ?");
 
 				ps2.setString(1, username);
 				ps2.setString(2, password);

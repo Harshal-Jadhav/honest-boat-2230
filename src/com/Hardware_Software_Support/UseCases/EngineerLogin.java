@@ -8,7 +8,7 @@ import com.Hardware_Software_Support.Exceptions.CredentialsException;
 
 public class EngineerLogin {
 
-	public boolean loginIntoAccount(String table) {
+	public boolean loginIntoAccount() {
 		Scanner sc = new Scanner(System.in);
 
 		boolean flag = false;
@@ -23,7 +23,7 @@ public class EngineerLogin {
 
 		try {
 			
-			String UserName = dao.login(username, password, table);
+			String UserName = dao.login(username, password);
 
 			flag = true;
 			System.out.println("\nWelcome " + UserName);

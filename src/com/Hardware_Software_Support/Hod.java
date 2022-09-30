@@ -21,13 +21,12 @@ public class Hod {
 	public void run() {
 
 		HodLogin lg = new HodLogin();
-		Hod h = new Hod();
 
-		if (lg.run("hod")) {
-			h.menu();
+		if (lg.run()) {
+			menu();
 		} else {
 
-			h.run();
+			run();
 		}
 	}
 

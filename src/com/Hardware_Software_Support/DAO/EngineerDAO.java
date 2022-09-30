@@ -11,7 +11,7 @@ public interface EngineerDAO {
 
 	public List<ComplaintsBean> viewAssignedProblems(int EngId) throws RecordsNotFoundException;
 	
-	public String login(String username, String password, String table) throws CredentialsException;
+	public String login(String username, String password) throws CredentialsException;
 	
 	public boolean updateStatus(String compId, String Status, int engId) throws RecordsNotFoundException, InvalidInputException;
 

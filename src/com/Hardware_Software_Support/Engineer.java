@@ -21,7 +21,7 @@ public class Engineer {
 
 		Engineer E = new Engineer();
 		EngineerLogin eg = new EngineerLogin();
-		if (eg.loginIntoAccount("engineer")) {
+		if (eg.loginIntoAccount()) {
 			E.menu();
 		} else {
 
