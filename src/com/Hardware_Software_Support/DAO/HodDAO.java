@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.Hardware_Software_Support.Bean.ComplaintsBean;
 import com.Hardware_Software_Support.Bean.EngineerBean;
+import com.Hardware_Software_Support.Exceptions.CredentialsException;
 import com.Hardware_Software_Support.Exceptions.InvalidInputException;
 import com.Hardware_Software_Support.Exceptions.RecordsNotFoundException;
 
@@ -22,4 +23,6 @@ public interface HodDAO {
 	public List<ComplaintsBean> viewAllComplaints() throws RecordsNotFoundException;
 	
 	public boolean assignEngineer(String compId, int EngId) throws InvalidInputException;
+	
+	public String login(String username, String password) throws CredentialsException;
 }

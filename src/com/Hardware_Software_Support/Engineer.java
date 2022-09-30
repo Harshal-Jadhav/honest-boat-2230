@@ -2,9 +2,11 @@ package com.Hardware_Software_Support;
 
 import java.util.Scanner;
 
+import com.Hardware_Software_Support.UseCases.ChangePassEngineer;
+import com.Hardware_Software_Support.UseCases.EngineerLogin;
+import com.Hardware_Software_Support.UseCases.GetAllAttendedProblems;
 import com.Hardware_Software_Support.UseCases.GetAllEngineerAssignedComplaints;
-import com.Hardware_Software_Support.UseCases.GetAllEngineersFromList;
-import com.Hardware_Software_Support.UseCases.LoginUser;
+import com.Hardware_Software_Support.UseCases.UpdateStatusOfProblems;
 
 /**
  * This class Handles all the Menu Operations that an Engineer is allowed to do.
@@ -17,10 +19,9 @@ public class Engineer {
 
 	public void run() {
 
-		LoginUser lg = new LoginUser();
 		Engineer E = new Engineer();
-
-		if (lg.loginIntoAccount("engineer")) {
+		EngineerLogin eg = new EngineerLogin();
+		if (eg.loginIntoAccount()) {
 			E.menu();
 		} else {
 
@@ -49,6 +50,18 @@ public class Engineer {
 			case 1:
 				GetAllEngineerAssignedComplaints getComplaints = new GetAllEngineerAssignedComplaints();
 				getComplaints.run();
+				break;
+			case 2:
+				UpdateStatusOfProblems up = new UpdateStatusOfProblems();
+				up.run();
+				break;
+			case 3:
+				GetAllAttendedProblems g = new GetAllAttendedProblems();
+				g.run();
+				break;
+			case 4:
+				ChangePassEngineer ch = new ChangePassEngineer();
+				ch.run();
 				break;
 
 			default:

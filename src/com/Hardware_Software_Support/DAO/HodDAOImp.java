@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.Hardware_Software_Support.Bean.ComplaintsBean;
 import com.Hardware_Software_Support.Bean.EngineerBean;
+import com.Hardware_Software_Support.Exceptions.CredentialsException;
 import com.Hardware_Software_Support.Exceptions.InvalidInputException;
 import com.Hardware_Software_Support.Exceptions.RecordsNotFoundException;
 import com.Hardware_Software_Support.Utility.ConnectionGenerator;
@@ -278,6 +279,48 @@ public class HodDAOImp implements HodDAO {
 			throw new InvalidInputException(e.getMessage());
 		}
 		return flag;
+	}
+
+	@Override
+	public String login(String username, String password) throws CredentialsException {
+
+		String name = null;
+		
+		try (Connection con = ConnectionGenerator.provideConnection()) {
+			
+			PreparedStatement ps1 = con.prepareStatement("select * from hod where username = ?");
+
+			ps1.setString(1, username);
+			
+			ResultSet rs1 = ps1.executeQuery();
+
+			if (rs1.next()) {
+				PreparedStatement ps2 = con.prepareStatement("select * from hod where username = ? AND password = ?");
+
+				ps2.setString(1, username);
+				ps2.setString(2, password);
+
+				ResultSet rs2 = ps2.executeQuery();
+
+//				if (rs2.next() && table=="engineer") {
+//					name = rs2.getString("EngFirstName")+" "+rs2.getString("EngLastName");
+//				}
+				if (rs2.next()) {
+						name = (rs2.getString("FirstName") + " " + rs2.getString("LastName"));
+				}else {
+					throw new CredentialsException("\nOOPS Wrong Password...! Try Again\n======================================\n");
+				}
+
+			}else {
+				throw new CredentialsException("\nUser Not Found..Please Check username or Register Yourself..!\n========================================================\n");
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new CredentialsException(e.getMessage());
+		}
+
+		return name;
 	}
 
 }
