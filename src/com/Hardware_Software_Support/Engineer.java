@@ -63,8 +63,13 @@ public class Engineer {
 				ChangePassEngineer ch = new ChangePassEngineer();
 				ch.run();
 				break;
-
+			case 5:
+				check = false;
+				APP.main(null);
+				break;
 			default:
+				System.out.println("Invalid Choice...!");
+				menu();
 				break;
 			}
 		}
