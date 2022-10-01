@@ -2,38 +2,42 @@ package com.Hardware_Software_Support.UseCases;
 
 import java.util.Scanner;
 
+import com.Hardware_Software_Support.Bean.EngineerBean;
 import com.Hardware_Software_Support.DAO.EngineerDAO;
 import com.Hardware_Software_Support.DAO.EngineerDAOImp;
 import com.Hardware_Software_Support.Exceptions.CredentialsException;
 
 public class EngineerLogin {
 
-	public boolean loginIntoAccount() {
+	public EngineerBean loginIntoAccount() {
 		Scanner sc = new Scanner(System.in);
 
 		boolean flag = false;
-
+		EngineerBean en = null;
 		System.out.print("Enter Your Username: ");
 		String username = sc.nextLine();
 
 		System.out.print("Enter Your Password: ");
 		String password = sc.nextLine();
-//		sc.close();
 		EngineerDAO dao = new EngineerDAOImp();
 
 		try {
 			
-			String UserName = dao.login(username, password);
+			en = dao.login(username, password);
 
 			flag = true;
-			System.out.println("\nWelcome " + UserName);
+			System.out.println("\nWelcome " + en.getName());
 			System.out.println("=============================");
 			
 		} catch (CredentialsException e) {
 			System.out.println(e.getMessage());
 		}
-
-		return flag;
+		
+		if(flag) {
+			return en;			
+		}else {
+			return null;
+		}
 	}
 
 }

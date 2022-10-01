@@ -2,6 +2,7 @@ package com.Hardware_Software_Support;
 
 import java.util.Scanner;
 
+import com.Hardware_Software_Support.Bean.EmployeeBean;
 import com.Hardware_Software_Support.UseCases.CheckStatusOfComplaints;
 import com.Hardware_Software_Support.UseCases.EmployeeLogin;
 import com.Hardware_Software_Support.UseCases.GetAllComplaintsOfEmployee;
@@ -9,6 +10,8 @@ import com.Hardware_Software_Support.UseCases.RaiseNewComplaint;
 import com.Hardware_Software_Support.UseCases.RegisterNewEmployee;
 
 public class Employee {
+	
+	static EmployeeBean en ;
 
 	public void run() {
 		Scanner sc = new Scanner(System.in);
@@ -46,7 +49,8 @@ public class Employee {
 
 	public void login() {
 		EmployeeLogin el = new EmployeeLogin();
-		if (el.loginIntoAccount()) {
+		en = el.loginIntoAccount();
+		if (en!=null) {
 			menu();
 		} else {
 			run();
@@ -73,15 +77,15 @@ public class Employee {
 			switch (choice) {
 			case 1:
 				RaiseNewComplaint rs = new RaiseNewComplaint();
-				rs.run();
+				rs.run(en);
 				break;
 			case 2:
 				CheckStatusOfComplaints ch = new CheckStatusOfComplaints();
-				ch.run();
+				ch.run(en);
 				break;
 			case 3:
 				GetAllComplaintsOfEmployee ge = new GetAllComplaintsOfEmployee();
-				ge.run();
+				ge.run(en);
 				break;
 			case 4:
 				check = false;

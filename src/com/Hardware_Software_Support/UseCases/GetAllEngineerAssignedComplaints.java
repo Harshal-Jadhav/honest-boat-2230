@@ -4,19 +4,16 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.Hardware_Software_Support.Bean.ComplaintsBean;
+import com.Hardware_Software_Support.Bean.EngineerBean;
 import com.Hardware_Software_Support.DAO.EngineerDAO;
 import com.Hardware_Software_Support.DAO.EngineerDAOImp;
 import com.Hardware_Software_Support.Exceptions.RecordsNotFoundException;
 
 public class GetAllEngineerAssignedComplaints {
 
-	public void run() {
+	public void run(EngineerBean engObj) {
 		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.print("Please Submit Your Engineer Id for Confirmation: ");
-		int id = sc.nextInt();
-		sc.nextLine();
+		int id = engObj.getEmpId();
 		
 		EngineerDAO e = new EngineerDAOImp();
 		try {

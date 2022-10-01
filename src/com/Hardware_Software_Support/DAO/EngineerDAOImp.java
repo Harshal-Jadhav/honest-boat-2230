@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.Hardware_Software_Support.Bean.ComplaintsBean;
+import com.Hardware_Software_Support.Bean.EngineerBean;
 import com.Hardware_Software_Support.Exceptions.CredentialsException;
 import com.Hardware_Software_Support.Exceptions.InvalidInputException;
 import com.Hardware_Software_Support.Exceptions.RecordsNotFoundException;
@@ -58,9 +59,9 @@ public class EngineerDAOImp implements EngineerDAO {
 		return list;
 	}
 
-	public String login(String username, String password) throws CredentialsException {
+	public EngineerBean login(String username, String password) throws CredentialsException {
 
-		String name = null;
+		EngineerBean en = new EngineerBean();
 
 		try (Connection con = ConnectionGenerator.provideConnection()) {
 
@@ -80,7 +81,12 @@ public class EngineerDAOImp implements EngineerDAO {
 				ResultSet rs2 = ps2.executeQuery();
 
 				if (rs2.next()) {
-					name = rs2.getString("EngFirstName") + " " + rs2.getString("EngLastName");
+					en.setEmpId(rs2.getInt("EngId"));
+					en.setName(rs2.getString("EngFirstName") + " " + rs2.getString("EngLastName"));
+					en.setDepartment(rs2.getNString("EngDepartment"));
+					en.setUsername(rs2.getString("username"));
+					en.setPassword(rs2.getString("password"));
+
 				} else {
 					throw new CredentialsException(
 							"\nOOPS Wrong Password...! Try Again\n======================================\n");
@@ -96,7 +102,7 @@ public class EngineerDAOImp implements EngineerDAO {
 			throw new CredentialsException(e.getMessage());
 		}
 
-		return name;
+		return en;
 	}
 
 	public boolean updateStatus(String compId, String Status, int engId)

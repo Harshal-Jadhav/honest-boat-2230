@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.Hardware_Software_Support.Bean.ComplaintsBean;
+import com.Hardware_Software_Support.Bean.EmployeeBean;
 import com.Hardware_Software_Support.Exceptions.CredentialsException;
 import com.Hardware_Software_Support.Exceptions.InvalidInputException;
 import com.Hardware_Software_Support.Exceptions.RecordsNotFoundException;
@@ -46,8 +47,8 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	}
 
 	@Override
-	public String login(String username, String password) throws CredentialsException {
-		String name = null;
+	public EmployeeBean login(String username, String password) throws CredentialsException {
+		EmployeeBean en = new EmployeeBean();
 
 		try (Connection con = ConnectionGenerator.provideConnection()) {
 
@@ -67,7 +68,12 @@ public class EmployeeDAOImp implements EmployeeDAO {
 				ResultSet rs2 = ps2.executeQuery();
 
 				if (rs2.next()) {
-					name = (rs2.getString("FirstName") + " " + rs2.getString("LastName"));
+					en.setEmpId(rs2.getInt("EmpId"));
+					en.setName(rs2.getString("FirstName") + " " + rs2.getString("LastName"));
+					en.setDepartment(rs2.getString("department"));
+					en.setUsername(rs2.getString("username"));
+					en.setPassword(rs2.getString("password"));
+					
 				} else {
 					throw new CredentialsException(
 							"\nOOPS Wrong Password...! Try Again\n======================================\n");
@@ -83,7 +89,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 			throw new CredentialsException(e.getMessage());
 		}
 
-		return name;
+		return en;
 	}
 
 	@Override
@@ -116,17 +122,18 @@ public class EmployeeDAOImp implements EmployeeDAO {
 	}
 
 	@Override
-	public ComplaintsBean checkComplaintStatus(String CompId) throws InvalidInputException, RecordsNotFoundException {
+	public ComplaintsBean checkComplaintStatus(String CompId, int empId) throws InvalidInputException, RecordsNotFoundException {
 		ComplaintsBean c = null;
 
 		try (Connection con = ConnectionGenerator.provideConnection()) {
 
 			PreparedStatement ps1 = con.prepareStatement(
-					"select c.id,c.description,c.type,c.EmpId,em.firstname,em.lastname,em.department,c.EngId,en.EngFirstname,en.EngLastname,en.EngDepartment,c.status from complaints c , employee em, engineer en where c.EmpId=em.EmpId AND c.EngId=en.EngId AND c.id=?");
+					"select c.id,c.description,c.type,c.EmpId,em.firstname,em.lastname,em.department,c.EngId,en.EngFirstname,en.EngLastname,en.EngDepartment,c.status from complaints c , employee em, engineer en where c.EmpId=em.EmpId AND c.EngId=en.EngId AND c.id=? AND c.EmpId=?");
 
 			PreparedStatement ps2 = con.prepareStatement("select * from complaints where id = ?");
 
 			ps1.setString(1, CompId);
+			ps1.setInt(2, empId);
 			ps2.setString(1, CompId);
 
 			if (ps2.executeQuery().next()) {

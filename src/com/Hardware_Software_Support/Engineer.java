@@ -2,6 +2,7 @@ package com.Hardware_Software_Support;
 
 import java.util.Scanner;
 
+import com.Hardware_Software_Support.Bean.EngineerBean;
 import com.Hardware_Software_Support.UseCases.ChangePassEngineer;
 import com.Hardware_Software_Support.UseCases.EngineerLogin;
 import com.Hardware_Software_Support.UseCases.GetAllAttendedProblems;
@@ -17,11 +18,14 @@ import com.Hardware_Software_Support.UseCases.UpdateStatusOfProblems;
  */
 public class Engineer {
 
+	static EngineerBean engObj;
+	
 	public void run() {
 
 		Engineer E = new Engineer();
 		EngineerLogin eg = new EngineerLogin();
-		if (eg.loginIntoAccount()) {
+		engObj = eg.loginIntoAccount() ;
+		if (engObj!=null) {
 			E.menu();
 		} else {
 
@@ -49,19 +53,19 @@ public class Engineer {
 			switch (choice) {
 			case 1:
 				GetAllEngineerAssignedComplaints getComplaints = new GetAllEngineerAssignedComplaints();
-				getComplaints.run();
+				getComplaints.run(engObj);
 				break;
 			case 2:
 				UpdateStatusOfProblems up = new UpdateStatusOfProblems();
-				up.run();
+				up.run(engObj);
 				break;
 			case 3:
 				GetAllAttendedProblems g = new GetAllAttendedProblems();
-				g.run();
+				g.run(engObj);
 				break;
 			case 4:
 				ChangePassEngineer ch = new ChangePassEngineer();
-				ch.run();
+				ch.run(engObj);
 				break;
 			case 5:
 				check = false;
