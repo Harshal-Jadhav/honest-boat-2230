@@ -29,7 +29,7 @@ public class GetAllComplaintsFromList {
 			try {
 				List<ComplaintsBean> list = h.viewUnassignedComplaints();
 
-				list.stream().forEach(s -> System.out.println(s));
+				list.stream().forEach(s -> System.out.print(s));
 			} catch (RecordsNotFoundException e) {
 				System.out.println(e.getMessage());
 			}
@@ -47,7 +47,7 @@ public class GetAllComplaintsFromList {
 			try {
 				List<ComplaintsBean> list = h.viewAllComplaints();
 
-				list.stream().forEach(s -> System.out.println(s));
+				list.stream().forEach(s -> System.out.print(s));
 			} catch (RecordsNotFoundException e) {
 				System.out.println(e.getMessage());
 			}

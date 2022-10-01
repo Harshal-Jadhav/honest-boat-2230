@@ -12,7 +12,7 @@ public class ComplaintsBean {
 	private int engId;
 	private String engName;
 	private String EngDepartment;
-	
+
 	public String getEmpDepartment() {
 		return empDepartment;
 	}
@@ -29,11 +29,11 @@ public class ComplaintsBean {
 		EngDepartment = engDepartment;
 	}
 
-	//Constructor
+	// Constructor
 	public ComplaintsBean() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	/*
 	 * Getter And Setter Methods for above Variables.
 	 */
@@ -104,13 +104,10 @@ public class ComplaintsBean {
 
 	@Override
 	public String toString() {
-		return "ComplaintsBean [Id=" + Id + ", description=" + description + ", type=" + type + ", empId=" + empId
-				+ ", empName=" + empName + ", empDepartment=" + empDepartment + ", status=" + status + ", engId="
-				+ engId + ", engName=" + engName + ", EngDepartment=" + EngDepartment + "]";
+
+		System.out.printf("| %-15s | %-50s | %10s | %03d | %20s | %15s | %15s | %04d | %15s | %15s |%n", 
+				Id,description, type, empId, empName, empDepartment, status, engId, engName, EngDepartment);
+		return "";
 	}
 
-	
-	
-	
-	
 }
