@@ -13,6 +13,7 @@ import com.Hardware_Software_Support.Exceptions.CredentialsException;
 import com.Hardware_Software_Support.Exceptions.InvalidInputException;
 import com.Hardware_Software_Support.Exceptions.RecordsNotFoundException;
 import com.Hardware_Software_Support.Utility.ConnectionGenerator;
+import com.mysql.cj.protocol.Resultset;
 
 public class HodDAOImp implements HodDAO {
 
@@ -88,7 +89,17 @@ public class HodDAOImp implements HodDAO {
 		boolean flag = false;
 
 		try (Connection con = ConnectionGenerator.provideConnection()) {
-
+			
+			PreparedStatement p1 = con.prepareStatement("select * from complaints where EngId=?");
+			ResultSet r1 = p1.executeQuery();
+			
+			if(r1.next()) {
+				PreparedStatement ps = con.prepareStatement("delete from complaints where EngId=?");
+				ps.setInt(1, id);
+				
+				ps.executeUpdate();
+			}
+			
 			PreparedStatement ps1 = con.prepareStatement("delete from engineer where EngId=?");
 
 			ps1.setInt(1, id);

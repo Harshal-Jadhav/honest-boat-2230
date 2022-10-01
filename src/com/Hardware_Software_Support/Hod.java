@@ -71,8 +71,8 @@ public class Hod {
 				as.run();
 				break;
 			case 6:
-				System.out.println("logout");
 				check = false;
+				APP.main(null);
 				break;
 
 			default:
