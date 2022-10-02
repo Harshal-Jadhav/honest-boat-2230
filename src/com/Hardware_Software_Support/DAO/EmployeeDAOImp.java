@@ -211,7 +211,7 @@ public class EmployeeDAOImp implements EmployeeDAO {
 			}
 
 			if (flag) {
-				throw new RecordsNotFoundException("No Records Found for the Unassigned Complaints...");
+				throw new RecordsNotFoundException("No Complaints Found.");
 			}
 
 		} catch (SQLException e) {

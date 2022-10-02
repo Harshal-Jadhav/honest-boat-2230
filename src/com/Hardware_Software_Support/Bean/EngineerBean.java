@@ -59,8 +59,12 @@ public class EngineerBean {
 
 	@Override
 	public String toString() {
-		return "EngineerBean [EmployeeId=" + empId + ", Name=" + name + ", Department=" + department + ", Username="
-				+ username + ", Password=" + password + "]";
+		
+		System.out.println("------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("Engineer ID: "+empId+ "                                           "+"Engineer Name: "+name);
+		System.out.println("Engineer Department: "+department+"                 "+"Engineer Username: "+username);
+		System.out.println("Engineer Password: "+password);
+		return "------------------------------------------------------------------------------------------------------------------------";
 	}
 	
 	

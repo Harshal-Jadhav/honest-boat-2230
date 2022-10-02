@@ -22,6 +22,10 @@ public class Engineer {
 	
 	public void run() {
 
+		System.out.println("---------------------------------------------------------------------------------");
+		System.out.println("                       WELCOME TO ENGINEER PORTAL                       ");
+		System.out.println("----------------------------------------------------------------------------------");
+		
 		Engineer E = new Engineer();
 		EngineerLogin eg = new EngineerLogin();
 		engObj = eg.loginIntoAccount() ;
@@ -39,8 +43,8 @@ public class Engineer {
 		boolean check = true;
 
 		while (check) {
-			System.out.println("\nPlease Enter Your Choice: ");
-			System.out.println("=========================");
+			System.out.println("Please Enter Your Choice: ");
+			System.out.println("**********************");
 			System.out.println("1. View Problems Assigned to me.");
 			System.out.println("2. Update the Status of the Problems.");
 			System.out.println("3. View all Problems attended by me.");

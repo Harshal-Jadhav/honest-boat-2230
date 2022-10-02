@@ -12,6 +12,9 @@ public class HodLogin {
 		Scanner sc = new Scanner(System.in);
 
 		boolean flag = false;
+		
+		System.out.println("\nPlease Provide Your Login Credentials:-");
+		System.out.println("**********************************");
 
 		System.out.print("Enter Your Username: ");
 		String username = sc.nextLine();
@@ -27,7 +30,7 @@ public class HodLogin {
 
 			flag = true;
 			System.out.println("\nWelcome " + UserName);
-			System.out.println("=============================");
+			System.out.println("-----------------------------------------");
 			
 		} catch (CredentialsException e) {
 			System.out.println(e.getMessage());

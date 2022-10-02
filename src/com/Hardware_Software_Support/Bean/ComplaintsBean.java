@@ -104,10 +104,15 @@ public class ComplaintsBean {
 
 	@Override
 	public String toString() {
+		System.out.println("----------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("Complaint ID: " + Id + "                 " + "Complaint Type: " + type
+				+ "                      " + "Status: " + status);
+		System.out.println("\nComplaint Description: " + description + "\n");
+		System.out.println("Employee ID:  " + empId + "                                   " + "Engineer ID: " + engId);
+		System.out.println("Employee Department:" + empDepartment + "      " + "Engineer Department: " + EngDepartment);
+		System.out.println("Employee Name: " + empName + "            " + "Emgineer Name: " + engName);
 
-		System.out.printf("| %-15s | %-50s | %10s | %03d | %20s | %15s | %15s | %04d | %15s | %15s |%n", 
-				Id,description, type, empId, empName, empDepartment, status, engId, engName, EngDepartment);
-		return "";
+		return "----------------------------------------------------------------------------------------------------------------------------------";
 	}
 
 }

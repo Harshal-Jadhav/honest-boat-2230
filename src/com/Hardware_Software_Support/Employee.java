@@ -15,9 +15,14 @@ public class Employee {
 
 	public void run() {
 		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("---------------------------------------------------------------------------------");
+		System.out.println("                        WELCOME TO EMPLOYEE PORTAL                     ");
+		System.out.println("----------------------------------------------------------------------------------");
+		
 
 		System.out.println("Please Select Your Choice: ");
-		System.out.println("==========================\n");
+		System.out.println("***********************");
 		System.out.println("1. Register Into System.");
 		System.out.println("2. Login Into Account.");
 		System.out.println("3. Go Back.");
@@ -33,7 +38,7 @@ public class Employee {
 			login();
 			break;
 		case 3:
-			APP.run();
+			APP.main(null);
 		default:
 			System.out.println("Invalid Choice....");
 			run();
@@ -65,8 +70,8 @@ public class Employee {
 
 			Scanner sc = new Scanner(System.in);
 
-			System.out.println("Please Enter Your Choice:-");
-			System.out.println("=====================/n");
+			System.out.println("\nPlease Enter Your Choice:-");
+			System.out.println("***********************");
 
 			System.out.println("1. Raise a New Complaint: ");
 			System.out.println("2. See The Status of a Complaint:");

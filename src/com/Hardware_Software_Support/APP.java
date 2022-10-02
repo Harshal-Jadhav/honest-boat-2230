@@ -15,9 +15,11 @@ import java.util.Scanner;
 public class APP {
 
 	public static void main(String[] args) {
-		System.out.println("*******************************************************\n");
-		System.out.println("*-----------------------WELCOME TO HELPING HANDS------------------*\n");
-		System.out.println("*******************************************************\n");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("                 -----WELCOME TO HONEST-BOAT-2230----                        ");
+		System.out.println("   A Unit-5 Construct Week Project Created By Harshal Jadhav.    ");
+		System.out.println("            Its A Online Hardware & Software Support System"            );
+		System.out.println("---------------------------------------------------------------------------------------");
 
 		run();
 

@@ -14,6 +14,9 @@ public class EngineerLogin {
 
 		boolean flag = false;
 		EngineerBean en = null;
+		
+		System.out.println("\nPlease Provide Your Login Credentials:-");
+		System.out.println("**********************************");
 		System.out.print("Enter Your Username: ");
 		String username = sc.nextLine();
 
@@ -27,7 +30,7 @@ public class EngineerLogin {
 
 			flag = true;
 			System.out.println("\nWelcome " + en.getName());
-			System.out.println("=============================");
+			System.out.println("-------------------------------------");
 			
 		} catch (CredentialsException e) {
 			System.out.println(e.getMessage());

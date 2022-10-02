@@ -317,7 +317,7 @@ public class HodDAOImp implements HodDAO {
 //					name = rs2.getString("EngFirstName")+" "+rs2.getString("EngLastName");
 //				}
 				if (rs2.next()) {
-						name = (rs2.getString("FirstName") + " " + rs2.getString("LastName"));
+						name = (rs2.getString("FirstName"));
 				}else {
 					throw new CredentialsException("\nOOPS Wrong Password...! Try Again\n======================================\n");
 				}
