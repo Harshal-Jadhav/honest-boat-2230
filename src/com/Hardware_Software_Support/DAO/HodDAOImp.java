@@ -91,6 +91,7 @@ public class HodDAOImp implements HodDAO {
 		try (Connection con = ConnectionGenerator.provideConnection()) {
 			
 			PreparedStatement p1 = con.prepareStatement("select * from complaints where EngId=?");
+			p1.setInt(1, id);
 			ResultSet r1 = p1.executeQuery();
 			
 			if(r1.next()) {
